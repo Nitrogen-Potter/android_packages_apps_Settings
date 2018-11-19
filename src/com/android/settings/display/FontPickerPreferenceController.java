@@ -25,8 +25,7 @@ import com.android.settingslib.core.AbstractPreferenceController;
 import com.android.settingslib.core.lifecycle.Lifecycle;
 import com.android.settingslib.core.lifecycle.LifecycleObserver;
 import com.android.settingslib.core.lifecycle.events.OnResume;
-import com.aosip.owlsnest.AccentPicker;
- import android.app.Fragment;
+import android.app.Fragment;
 import android.content.Context;
 import android.content.FontInfo;
 import android.content.IFontService;
@@ -90,7 +89,12 @@ import android.util.Log;
             return FontInfo.getDefaultFontInfo();
         }
     }
-     private boolean isPackageInstalled(String package_name, Context context) {
+	
+	public void stopProgress() {
+        mFontPreference.stopProgress();
+    }
+    
+	private boolean isPackageInstalled(String package_name, Context context) {
         try {
             PackageManager pm = context.getPackageManager();
             pm.getPackageInfo(package_name, PackageManager.GET_ACTIVITIES);
